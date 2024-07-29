@@ -2,7 +2,26 @@
 from flask import Flask, render_template, request, redirect, url_for
 from flask import session
 import pyrebase
+# Gemini API
+import os
+import google.generativeai as genai
 
+genai.configure(api_key=os.environ["GEMINI_API_KEY"])
+
+generation_config = {
+	"temperature": 1,
+	"top_p": 0.95,
+	"top_k": 64,
+	"max_output_tokens": 500,
+	"response_mime_type": "text/plain",
+}
+
+model = genai.GenerativeModel(
+	model_name="gemini-1.5-flash",
+	generation_config=generation_config,
+)
+
+#firebase auth and db
 firebaseConfig = {
   "apiKey": "AIzaSyD0eu0W1DQkI_zwWfLs7DK3kcN9An7D_b4",
   "authDomain": "ecopeace-1.firebaseapp.com",
@@ -54,15 +73,39 @@ def login():
 	else:
 		return render_template('login.html')
 
-
+# home route
 @app.route("/home", methods=['GET', 'POST'])
 def home():
 	return render_template("home.html")
 
 
+# /chatbot route
+@app.route("/chatbot", methods=['GET', 'POST'])
+def bot():
+    response = None
+    if request.method == 'POST':
+        user_input = request.form['message']
+        # Start a new chat session or continue the existing one
+        chat_session = model.start_chat(history=[
+            {
+                "role": "user",
+                "parts": [
+                    "Hi! I'm the EcoPeace chatbot. I can help you learn about our work in environmental peacebuilding, water conservation, renewable energy, and more. What would you like to know?"
+                ]
+            }
+        ])
+        # Get the response from the chatbot
+        response = chat_session.send_message(user_input).text
+    return render_template("chatbot.html", response=response)
+
+
+
+
+# error route
 @app.route("/error")
 def error():
 	return render_template('error.html')
+
 
 # running the code
 if __name__ == '__main__':
