@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>EcoPeace Teenagers</title>
+	<title>EcoPeace Education</title>
   <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
 	<link rel="stylesheet" type="text/css" href="static/style.css">
 
@@ -20,6 +20,19 @@
 
 </div>
  
+ <h1>EcoPeace Edu</h1>
+<a href="{{url_for('teacher')}}" ><button>Teacher</button></a>
+<br>
+<br>
+<a href="{{url_for('student')}}" ><button>Student of life</button></a>
+<br>
+<br>
+<div class="signout-container">
+</form id="signout">
+<br>
+<form action="{{ url_for('signout') }}" method="POST">
+<button type="submit">Signout</button>
+</div>
 
 
 </body>
