@@ -112,6 +112,15 @@ def join():
 def library():
     return render_template("library.html")
 
+@app.route('/teacher', methods=['GET', 'POST'])
+def teacher():
+	return render_template('teacher.html')
+
+@app.route('/student', methods=['GET', 'POST'])
+def student():
+	return render_template('student.html')
+
+
 # error route
 @app.route("/error")
 def error():
