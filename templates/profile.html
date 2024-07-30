@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../static/profile.css">
+    <title>Profile Page</title>
+</head>
+<body>
+<div class="topnav">
+    <a class="active" href="/workouts">Workouts</a>
+    <a href="/meals">Meals</a>
+    <a href="/dance">Dance styles</a>
+    <a href="/profile">Profile</a>
+    <a href="/">Home</a>
+    <a href="/signout">Signout</a>
+</div>
+<br><br><br><br><br><br>
+
+    <h1>Welcome to Your Profile Page</h1>
+
+<br><br>
+
+<br><br>
+<br><br>
+
+<div class="card">
+
+  <h1>Hey {{ user['userName'] }}</h1>
+<h2>User Information:</h2>
+        
+        <p><strong>Email:</strong> {{ user['Email'] }}</p>
+        <p><strong>Username:</strong> {{ user['userName'] }}</p>
+    
+    </div>
+<a href="/update"><button>update info</button></a>
+</body>
+</html>

@@ -4,6 +4,7 @@ from flask import session
 import pyrebase
 import os
 import google.generativeai as genai
+
 import markdown
 
 genai.configure(api_key=os.environ["GEMINI_API_KEY"])
@@ -46,19 +47,21 @@ finetune = ""
 # signup route
 @app.route('/', methods=['GET', 'POST'])
 def signup():
-    if request.method == 'POST':
-        email = request.form['email']
-        password = request.form['password']
-        username = request.form['name']
-        try:
-            user = auth.create_user_with_email_and_password(email, password)
-            return redirect(url_for('home'))
-        except Exception as e:
-            print("error", e)
-            return redirect(url_for('error'))
-
-    else:
-        return render_template('signup.html')
+	if request.method == 'POST':
+		email = request.form['email']
+		password = request.form['password']
+		username = request.form['name']
+		users={"Email": email, "password": password, "userName": username}
+		try:
+			user = auth.create_user_with_email_and_password(email, password)
+			uid = session['user']['localId']
+			db.child("users").child(uid).set(users)
+			return redirect(url_for('home'))
+		except Exception as e:
+				print("error", e)
+				return redirect(url_for('error'))
+	else:
+		return render_template('signup.html')
 
 # login route
 @app.route('/login', methods=['GET', 'POST'])
@@ -75,6 +78,33 @@ def login():
             return redirect(url_for('error'))
     else:
         return render_template('login.html')
+
+
+
+@app.route('/update', methods= ['GET', 'POST'])
+def update():
+	if request.method == 'POST':
+		psw = request.form['p']
+		userName = request.form['username']
+		users={"password": psw, "userName": userName}
+		uid = session['user']['localId']
+		db.child("users").child(uid).update(users)
+		return redirect(url_for('profile'))
+	return render_template('update.html')
+
+
+
+
+@app.route("/profile", methods= ['GET', 'POST'])
+def profile():
+    if 'user' in session:
+    	uid = session['user']['localId']
+    	user_data = db.child("users").child(uid).get().val()
+    	return render_template('profile.html', user=user_data)
+
+    return render_template('profile.html')
+
+
 
 # home route
 @app.route("/home", methods=['GET', 'POST'])

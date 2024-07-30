@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="../static/profile.css">
+
+  <title>Update info</title>
+</head>
+<body>
+<div class="topnav">
+    <a class="active" href="/workouts">Workouts</a>
+    <a href="/meals">Meals</a>
+    <!-- <a href="/dance">Dance styles</a> -->
+    <a href="/profile">Profile</a>
+    <a href="/">Home</a>
+    <a href="/signout">Signout</a>
+
+</div>
+
+
+<div class="card">
+
+  <form action="{{url_for('update')}}" method="POST">
+
+    <label for="password"><b>Password</b></label>
+    <input type="text" placeholder="Enter Password" name="p" required>
+
+    <label for="username"><b>username</b></label>
+    <input type="text" placeholder="Enter username" name="username" required>
+
+    <input type="submit" value="update">
+
+</form>
+    </div>
+
+
+</body>
+</html>
