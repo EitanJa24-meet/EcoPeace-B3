@@ -55,11 +55,11 @@ def signup():
 		try:
 			user = auth.create_user_with_email_and_password(email, password)
 			uid = session['user']['localId']
-			db.child("users").child(uid).set(users)
+			db.child("users").child(uid).set(user)
 			return redirect(url_for('home'))
 		except Exception as e:
-				print("error", e)
-				return redirect(url_for('error'))
+			print( e)
+			return redirect(url_for('error'))
 	else:
 		return render_template('signup.html')
 
@@ -97,12 +97,12 @@ def update():
 
 @app.route("/profile", methods= ['GET', 'POST'])
 def profile():
-    if 'user' in session:
-    	uid = session['user']['localId']
-    	user_data = db.child("users").child(uid).get().val()
-    	return render_template('profile.html', user=user_data)
+	if 'user' in session:
+		uid = session['user']['localId']
+		user_data = db.child("users").child(uid).get().val()
+		return render_template('profile.html', user=user_data)
 
-    return render_template('profile.html')
+	return render_template('profile.html')
 
 
 
