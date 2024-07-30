@@ -6,6 +6,8 @@ import pyrebase
 import os
 import google.generativeai as genai
 
+import markdown
+
 genai.configure(api_key=os.environ["GEMINI_API_KEY"])
 
 generation_config = {
@@ -78,6 +80,19 @@ def login():
 def home():
 	return render_template("home.html")
 
+# def format_response(text):
+#     # Replace **text** with <b>text</b>
+#     formatted_text = text.replace("**", "<b>").replace("**", "</b>")
+
+#     # Replace * text: * with <li>text:</li>
+#     formatted_text = formatted_text.replace("* ", "<li>").replace(": *", ":</li>")
+
+#     # Add <ul> and </ul> to wrap lists
+#     formatted_text = formatted_text.replace("<li>", "<ul><li>").replace("</li>", "</li></ul>")
+
+#     return formatted_text
+
+
 
 # /chatbot route
 @app.route("/chatbot", methods=['GET', 'POST'])
@@ -90,14 +105,23 @@ def bot():
             {
                 "role": "user",
                 "parts": [
-                    "Hi! I'm the EcoPeace chatbot. I can help you learn about our work in environmental peacebuilding, water conservation, renewable energy, and more. What would you like to know?"
+                    "Welcome! I'm the EcoPeace chatbot, here to help you explore our initiatives in environmental peacebuilding across Israel, Palestine, and Jordan. Whether you're interested in our cross-border water conservation projects, renewable energy collaborations, or educational programs for youth about the enviroment, I can provide you with detailed information. Visit our website: https://ecopeaceme.org. What would you like to learn more about today?"
                 ]
             }
         ])
         # Get the response from the chatbot
         response = chat_session.send_message(user_input).text
-    return render_template("chatbot.html", response=response)
+        finetune = markdown.markdown(response)
+    return render_template("chatbot.html", response=finetune)
 
+@app.route("/join", methods=['GET', 'POST'])
+def join():
+	return render_template('join.html')
+
+# library route
+@app.route('/library', methods=['GET', 'POST'])
+def library():
+  return render_template("library.html")
 
 
 

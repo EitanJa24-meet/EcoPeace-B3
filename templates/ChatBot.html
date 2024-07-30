@@ -2,19 +2,37 @@
 <html>
 <head>
     <title>EcoPeace Chatbot</title>
+    <style>
+        .response-section {
+            margin-top: 20px;
+        }
+        .response-section h2 {
+            margin-bottom: 10px;
+        }
+        .response-section ul {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+        .response-section a {
+            color: #2a7ae2;
+            text-decoration: none;
+        }
+    </style>
 </head>
 <body>
     <h1>Welcome to the EcoPeace Chatbot</h1>
-	<form method="POST">
-		<label for="message">Ask a question:</label>
-		<br>
-		<textarea id="message" name="message" required></textarea>
-		<button type="submit">Submit</button>
-	</form>
+    <form method="POST">
+        <label for="message">Ask a question:</label>
+        <br>
+        <textarea id="message" name="message" required placeholder="Ask an question related to EcoPeace or the Enviroment"></textarea>
+        <button type="submit">Submit</button>
+    </form>
 
     {% if response %}
+    <div class="response-section">
         <h2>Chatbot Response:</h2>
-        <p>{{ response }}</p>
+        <p>{{ response|safe }}</p>
+    </div>
     {% endif %}
 </body>
 </html>
