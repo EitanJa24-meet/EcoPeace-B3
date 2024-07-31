@@ -106,10 +106,12 @@ button:hover {
 
     .response-section h2 {
         font-size: 1.5em;
+        line-height: 1.8;
     }
 
     .response-section p {
         font-size: 1em;
+        line-height: 1.8;
     }
 }
         .response-section {
@@ -121,6 +123,7 @@ button:hover {
         .response-section ul {
             list-style-type: disc;
             margin-left: 20px;
+            line-height: 1.8;
         }
         .response-section a {
             color: #2a7ae2;
