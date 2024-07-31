@@ -51,11 +51,12 @@ def signup():
 		email = request.form['email']
 		password = request.form['password']
 		username = request.form['name']
-		users={"Email": email, "password": password, "userName": username}
+		users={"Email": email, "password": password, "username": username}
 		try:
 			user = auth.create_user_with_email_and_password(email, password)
-			uid = session['user']['localId']
-			db.child("users").child(uid).set(user)
+			session['localId'] = user['localId']
+			uid = session.get('localId')
+			db.child("users").child(uid).set(users)
 			return redirect(url_for('home'))
 		except Exception as e:
 			print( e)
