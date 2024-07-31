@@ -7,7 +7,7 @@ import google.generativeai as genai
 
 import markdown
 
-genai.configure(api_key=os.environ["GEMINI_API_KEY"])
+genai.configure(api_key = "AIzaSyARqafNv8nSjtyacGYQXirbEqsy6J1g4DI")
 
 generation_config = {
     "temperature": 1,

@@ -6,6 +6,119 @@
 
     <title>EcoPeace Chatbot</title>
     <style>
+       /* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4fdf4; /* Light green background */
+    color: #333;
+}
+
+h1 {
+    text-align: center;
+    color: #004d00; /* Deep green */
+    padding: 20px 0;
+    font-size: 2.5em;
+    margin: 0;
+}
+
+/* Form Styles */
+form {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    font-size: 1.2em;
+    color: #004d00; /* Deep green */
+}
+
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #004d00; /* Deep green */
+    border-radius: 5px;
+    font-size: 1em;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #004d00; /* Deep green */
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.1em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #003300; /* Slightly darker green */
+}
+
+/* Response Section */
+.response-section {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.response-section h2 {
+    margin-bottom: 10px;
+    color: #004d00; /* Deep green */
+    font-size: 1.8em;
+    border-bottom: 2px solid #004d00; /* Deep green */
+    padding-bottom: 10px;
+}
+
+.response-section p {
+    font-size: 1.2em;
+    line-height: 1.6;
+}
+
+/* Link Styles */
+.response-section a {
+    color: #004d00; /* Deep green */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.response-section a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    form, .response-section {
+        padding: 10px;
+        margin: 10px;
+    }
+
+    textarea {
+        font-size: 0.9em;
+    }
+
+    button {
+        font-size: 1em;
+    }
+
+    .response-section h2 {
+        font-size: 1.5em;
+    }
+
+    .response-section p {
+        font-size: 1em;
+    }
+}
         .response-section {
             margin-top: 20px;
         }
@@ -56,6 +169,7 @@
             color: #ffffff; /* Ensure text is readable on hover */
             transform: scale(1.05); /* Slight zoom effect on hover */
         }
+
     </style>
 </head>
 <body>
@@ -65,15 +179,9 @@
             <a href="/join">Join us</a>
             <a href="/profile">Profile</a>
 
-            <a href="/chatbot">chatbot</a>
             <a href="/signout">Signout</a>
         </div>
     </div>
-    <div>
-    <br>
-    <br>
-    <br>
-    <br>
 
     <h1>Welcome to the EcoPeace Chatbot</h1>
     <form method="POST">
