@@ -1,0 +1,132 @@
+/* General Styles */
+body {
+    font-family: 'Lora', serif; /* Elegant serif font */
+    margin: 0;
+    padding: 0;
+    background-color: #e8f5e9; /* Very light green for background */
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Full viewport height */
+    text-align: center;
+}
+
+/* Navigation Bar Styles */
+.topnav {
+    background-color: #388e3c; /* Medium green background */
+    padding: 20px 40px; /* Increase padding for a bigger bar */
+    position: fixed;
+    width: 100%; /* Full width */
+    top: 0; /* Align to the top */
+    left: 0; /* Align to the left */
+    z-index: 1000;
+}
+
+.topnav-content {
+    max-width: 1200px; /* Limit max width for better organization */
+    margin: 0 auto; /* Center align */
+    display: flex;
+    justify-content: space-between; /* Space out navigation items */
+    align-items: center; /* Center items vertically */
+}
+
+.topnav a {
+    color: #ffffff;
+    padding: 15px 25px; /* Adjust padding for larger clickable area */
+    text-decoration: none;
+    font-size: 1.4em; /* Larger font size */
+    font-weight: 600; /* Semi-bold for emphasis */
+    border-radius: 8px; /* Slightly more rounded corners */
+    transition: background-color 0.3s, color 0.3s, transform 0.3s;
+}
+
+.topnav a:hover {
+    background-color: #2c6b2f; /* Darker green on hover */
+    color: #ffffff; /* Ensure text is readable on hover */
+    transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+/* Container Styles */
+.container {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+    padding: 40px;
+    background: #ffffff; /* White background for contrast */
+    border-radius: 12px; /* Larger border-radius for a softer look */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+    max-width: 90%;
+    margin-top: 120px; /* To account for the fixed nav */
+}
+
+/* Heading Styles */
+h1 {
+    color: #388e3c; /* Medium green for the heading */
+    font-size: 4em; /* Larger font size for prominence */
+    margin: 0 0 20px; /* Margin below the heading */
+    font-weight: 700; /* Bold weight for emphasis */
+}
+
+/* Slideshow Styles */
+.slideshow-container {
+    position: relative;
+    max-width: 100%;
+    margin: 20px auto; /* Center align and margin */
+    overflow: hidden;
+    border-radius: 12px; /* Rounded corners for the slideshow */
+    width: 100%; /* Full width for the slideshow container */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.mySlides {
+    display: none; /* Hide slides by default */
+}
+
+img {
+    width: 100%; /* Make images responsive */
+    border-radius: 12px; /* Rounded corners for images */
+}
+
+/* Fade effect */
+.fade {
+    animation: fade 3s ease-in-out infinite;
+}
+
+@keyframes fade {
+    0% { opacity: 0; }
+    20% { opacity: 1; }
+    80% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+/* Button Container Styles */
+.button-container {
+    display: flex; /* Align buttons horizontally */
+    gap: 10px; /* Spacing between buttons */
+    margin-top: 20px; /* Margin above buttons */
+}
+
+/* Button Styles */
+button {
+    background-color: #1e88e5; /* Bright blue */
+    border: none;
+    color: white;
+    padding: 20px 40px; /* Larger padding for bigger buttons */
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1.5em; /* Larger font size */
+    font-weight: 600; /* Semi-bold for emphasis */
+    cursor: pointer;
+    border-radius: 8px; /* Rounded corners for buttons */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+    transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s;
+}
+
+button:hover {
+    background-color: #1565c0; /* Darker blue on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Deepened shadow on hover */
+    transform: translateY(-2px); /* Slight lift effect */
+}

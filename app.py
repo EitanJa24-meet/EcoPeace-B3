@@ -153,6 +153,13 @@ def student():
 	return render_template('student.html')
 
 
+
+
+@app.route('/signout', methods= ['GET', 'POST'])
+def signout():
+	session.clear()
+	return redirect(url_for('signup'))
+
 # error route
 @app.route("/error")
 def error():

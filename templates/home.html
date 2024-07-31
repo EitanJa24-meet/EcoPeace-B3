@@ -3,26 +3,25 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="../static/style1.css">
+    <link rel="stylesheet" type="text/css" href="../static/style3.css">
     <title>EcoPeace Education</title>
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
-
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&display=swap">
     <script>
         // JavaScript for Slideshow
-let slideIndex = 0;
-showSlides();
+        let slideIndex = 0;
+        showSlides();
 
-function showSlides() {
-    let slides = document.getElementsByClassName("mySlides");
-    for (let i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none"; // Hide all slides
-    }
-    slideIndex++;
-    if (slideIndex > slides.length) { slideIndex = 1; } // Loop back to the first slide
-    slides[slideIndex - 1].style.display = "block"; // Show the current slide
-    setTimeout(showSlides, 3000); // Change slide every 3 seconds
-}
-
+        function showSlides() {
+            let slides = document.getElementsByClassName("mySlides");
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none"; // Hide all slides
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) { slideIndex = 1; } // Loop back to the first slide
+            slides[slideIndex - 1].style.display = "block"; // Show the current slide
+            setTimeout(showSlides, 3000); // Change slide every 3 seconds
+        }
     </script>
 </head>
 <body>
@@ -39,18 +38,20 @@ function showSlides() {
         <!-- Slideshow -->
         <div class="slideshow-container">
             <div class="mySlides fade">
-                <img src="eco1.jpg" style="width:100%">
+                <img src="eco1.jpg" alt="EcoPeace Image 1">
             </div>
             <div class="mySlides fade">
-                <img src="eco2.jpg" style="width:100%">
+                <img src="eco2.jpg" alt="EcoPeace Image 2">
             </div>
             <div class="mySlides fade">
-                <img src="eco3.jpg" style="width:100%">
+                <img src="eco3.jpg" alt="EcoPeace Image 3">
             </div>
         </div>
-        <!-- Slideshow controls -->
-        <a href="{{url_for('teacher')}}"><button>Teacher</button></a>
-        <a href="{{url_for('student')}}"><button>Student of Life</button></a>
+        <!-- Button Container -->
+        <div class="button-container">
+            <a href="{{url_for('teacher')}}"><button>Teacher</button></a>
+            <a href="{{url_for('student')}}"><button>Student of Life</button></a>
+        </div>
     </div>
 </body>
 </html>
