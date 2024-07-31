@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../static/style2.css">
+
+    <title>Profile Page</title>
+</head>
+<body>
+<div class="topnav">
+        <div class="topnav-content">
+            <a href="/home">Home</a>
+            <a href="/join">Join us</a>
+            <a href="/profile">Profile</a>
+            <a href="/chatbot">chatbot</a>
+            <a href="/signout">Signout</a>
+        </div>
+    </div>
+
+<h1>Welcome to Your Profile Page</h1>
+
+<br><br>
+
+<br><br>
+<br><br>
+
+<div class="card">
+
+<h1>Hey {{ user['username'] }}</h1>
+<h2>User Information:</h2>
+        
+        <p><strong>Email:</strong> {{ user['Email'] }}</p>
+        <p><strong>Username:</strong> {{ user['username'] }}</p>
+    
+    </div>
+<a href="/update"><button>update info</button></a>
+</body>
+</html>
