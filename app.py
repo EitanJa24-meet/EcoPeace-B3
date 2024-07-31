@@ -133,7 +133,7 @@ def bot():
         
         finetune = markdown.markdown(response)
 
-    return render_template("chatbot.html", response=finetune)
+    return render_template("ChatBot.html", response=finetune)
 
 @app.route("/join", methods=['GET', 'POST'])
 def join():
