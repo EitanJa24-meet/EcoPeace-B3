@@ -98,12 +98,12 @@ def update():
 
 @app.route("/profile", methods= ['GET', 'POST'])
 def profile():
-	if 'user' in session:
+	try:
 		uid = session['user']['localId']
 		user_data = db.child("users").child(uid).get().val()
 		return render_template('profile.html', user=user_data)
-
-	return render_template('profile.html')
+	except:
+		return render_template('error.html')
 
 
 
