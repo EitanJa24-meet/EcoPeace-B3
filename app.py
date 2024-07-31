@@ -7,7 +7,7 @@ import google.generativeai as genai
 
 import markdown
 
-genai.configure(api_key=os.environ["GEMINI_API_KEY"])
+genai.configure(api_key = "AIzaSyARqafNv8nSjtyacGYQXirbEqsy6J1g4DI")
 
 generation_config = {
     "temperature": 1,
@@ -133,7 +133,7 @@ def bot():
         
         finetune = markdown.markdown(response)
 
-    return render_template("chatbot.html", response=finetune)
+    return render_template("ChatBot.html", response=finetune)
 
 @app.route("/join", methods=['GET', 'POST'])
 def join():
