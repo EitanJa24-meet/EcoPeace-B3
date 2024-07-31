@@ -55,7 +55,7 @@ def signup():
 		try:
 			user = auth.create_user_with_email_and_password(email, password)
 			session['user'] = user
-			uid = session.get('localId')
+			uid = session['user']['localId']
 			db.child("users").child(uid).set(users)
 			return redirect(url_for('home'))
 		except Exception as e:
@@ -85,9 +85,8 @@ def login():
 @app.route('/update', methods= ['GET', 'POST'])
 def update():
 	if request.method == 'POST':
-		psw = request.form['p']
-		userName = request.form['username']
-		users={"password": psw, "userName": userName}
+		username = request.form['username']
+		users={"username": username}
 		uid = session['user']['localId']
 		db.child("users").child(uid).update(users)
 		return redirect(url_for('profile'))
@@ -101,6 +100,8 @@ def profile():
 	try:
 		uid = session['user']['localId']
 		user_data = db.child("users").child(uid).get().val()
+		print(uid)
+		print(user_data)
 		return render_template('profile.html', user=user_data)
 	except:
 		return render_template('error.html')
