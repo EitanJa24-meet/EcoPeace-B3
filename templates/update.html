@@ -3,20 +3,26 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" href="../static/profile.css">
+  <link rel="stylesheet" type="text/css" href="../static/style1.css">
+
 
   <title>Update info</title>
 </head>
 <body>
 
-
+<div class="topnav">
+        <div class="topnav-content">
+            <a href="/home">Home</a>
+            <a href="/join">Join us</a>
+            <a href="/profile">Profile</a>
+            <a href="/signout">Signout</a>
+        </div>
+    </div>
 
 <div class="card">
 
   <form action="{{url_for('update')}}" method="POST">
 
-    <label for="password"><b>Password</b></label>
-    <input type="text" placeholder="Enter Password" name="p" required>
 
     <label for="username"><b>username</b></label>
     <input type="text" placeholder="Enter username" name="username" required>

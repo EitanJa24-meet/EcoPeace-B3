@@ -51,11 +51,12 @@ def signup():
 		email = request.form['email']
 		password = request.form['password']
 		username = request.form['name']
-		users={"Email": email, "password": password, "userName": username}
+		users={"Email": email, "password": password, "username": username}
 		try:
 			user = auth.create_user_with_email_and_password(email, password)
+			session['user'] = user
 			uid = session['user']['localId']
-			db.child("users").child(uid).set(user)
+			db.child("users").child(uid).set(users)
 			return redirect(url_for('home'))
 		except Exception as e:
 			print( e)
@@ -71,7 +72,7 @@ def login():
         password = request.form['password']
         try:
             user = auth.sign_in_with_email_and_password(email, password)
-            session['localId'] = user['localId']
+            session['user'] = user
             return redirect(url_for('home'))
         except Exception as e:
             print("error", e)
@@ -84,9 +85,8 @@ def login():
 @app.route('/update', methods= ['GET', 'POST'])
 def update():
 	if request.method == 'POST':
-		psw = request.form['p']
-		userName = request.form['username']
-		users={"password": psw, "userName": userName}
+		username = request.form['username']
+		users={"username": username}
 		uid = session['user']['localId']
 		db.child("users").child(uid).update(users)
 		return redirect(url_for('profile'))
@@ -100,6 +100,8 @@ def profile():
 	if 'user' in session:
 		uid = session['user']['localId']
 		user_data = db.child("users").child(uid).get().val()
+		print(uid)
+		print(user_data)
 		return render_template('profile.html', user=user_data)
 
 	return render_template('profile.html')

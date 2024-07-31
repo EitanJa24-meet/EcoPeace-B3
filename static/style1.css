@@ -1,0 +1,152 @@
+/* General Styles */
+body {
+    font-family: 'Raleway', sans-serif; /* Updated font */
+    margin: 0;
+    padding: 0;
+    background-color: #f0f4f8; /* Soft background color for a clean look */
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+    text-align: center;
+}
+
+/* Heading Styles */
+h1 {
+    color: #003366; /* Deep blue color for emphasis */
+    margin: 0; /* Remove default margin */
+    font-size: 4em; /* Larger font size for prominence */
+    font-weight: 700; /* Bold weight for emphasis */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Enhanced shadow for depth */
+}
+
+/* Navigation Bar Styles */
+.topnav {
+    background-color: #004080; /* Rich blue background */
+    padding: 15px 20px;
+    position: fixed;
+    width: 100%; /* Full width */
+    top: 0; /* Align to the top */
+    left: 0; /* Align to the left */
+    z-index: 1000;
+    display: flex;
+    justify-content: center; /* Center navigation items */
+}
+
+.topnav-content {
+    max-width: 1200px; /* Limit max width for better organization */
+    width: 100%; /* Full width within the max width */
+    display: flex;
+    justify-content: space-around; /* Space out navigation items */
+}
+
+.topnav a {
+    color: #ffffff;
+    text-align: center;
+    padding: 15px 25px; /* Increased padding for better touch targets */
+    text-decoration: none;
+    font-size: 1.2em; /* Larger font size */
+    font-weight: 600; /* Semi-bold for emphasis */
+    border-radius: 6px; /* Slightly larger border-radius */
+    transition: background-color 0.3s, color 0.3s, transform 0.3s;
+}
+
+.topnav a:hover {
+    background-color: #002a5e; /* Darker blue on hover */
+    color: #ffffff; /* Ensure text is readable on hover */
+    transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+/* Button Styles */
+button {
+    background-color: #003366; /* Deep blue */
+    border: none;
+    color: white;
+    padding: 30px 60px; /* Larger padding for bigger buttons */
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1.6em; /* Larger font size */
+    font-weight: 600; /* Semi-bold for emphasis */
+    margin: 20px; /* Spacing between buttons */
+    cursor: pointer;
+    border-radius: 10px; /* Larger border-radius for a more modern look */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
+    transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s;
+}
+
+button:hover {
+    background-color: #002a5e; /* Even darker blue on hover */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Deepened shadow on hover */
+    transform: translateY(-3px); /* Slight lift effect */
+}
+
+/* Container Styles */
+.container {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+    padding: 40px;
+    background: #ffffff;
+    border-radius: 12px; /* Larger border-radius for a softer look */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .topnav {
+        flex-direction: column; /* Stack navigation items vertically on small screens */
+        padding: 10px; /* Adjust padding for smaller screens */
+    }
+
+    .topnav-content {
+        flex-direction: column; /* Stack navigation items vertically */
+        align-items: center; /* Center items vertically */
+    }
+
+    .topnav a {
+        padding: 10px 20px; /* Adjust padding for smaller screens */
+        font-size: 1em; /* Slightly smaller font size */
+    }
+
+    button {
+        width: 100%;
+        padding: 20px 40px; /* Adjust padding for better fit on small screens */
+        font-size: 1.4em;
+    }
+
+    .container {
+        padding: 20px;
+    }
+}
+/* Slideshow Styles */
+.slideshow-container {
+    position: relative;
+    max-width: 100%;
+    margin: auto;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Match the container shadow */
+}
+
+.mySlides {
+    display: none; /* Hide slides by default */
+}
+
+img {
+    width: 100%; /* Make images responsive */
+    border-radius: 10px; /* Rounded corners for images */
+}
+
+/* Fade effect */
+.fade {
+    animation: fade 3s ease-in-out infinite;
+}
+
+@keyframes fade {
+    0% { opacity: 0; }
+    20% { opacity: 1; }
+    80% { opacity: 1; }
+    100% { opacity: 0; }
+}
