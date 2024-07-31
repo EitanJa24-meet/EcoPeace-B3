@@ -103,7 +103,8 @@ def profile():
 		print(uid)
 		print(user_data)
 		return render_template('profile.html', user=user_data)
-	except:
+	except Exception as e:
+		print(e)
 		return render_template('error.html')
 
 
@@ -139,10 +140,12 @@ def bot():
 def join():
     return render_template('join.html')
 
-# library route
-@app.route('/library', methods=['GET', 'POST'])
-def library():
-    return render_template("library.html")
+# signout route
+@app.route('/signout', methods= ['GET', 'POST'])
+def signout():
+	session.clear()
+	return redirect(url_for('signup'))
+
 
 @app.route('/teacher', methods=['GET', 'POST'])
 def teacher():
@@ -152,13 +155,6 @@ def teacher():
 def student():
 	return render_template('student.html')
 
-
-
-
-@app.route('/signout', methods= ['GET', 'POST'])
-def signout():
-	session.clear()
-	return redirect(url_for('signup'))
 
 # error route
 @app.route("/error")
